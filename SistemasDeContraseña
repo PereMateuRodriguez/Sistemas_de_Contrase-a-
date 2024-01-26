@@ -1,49 +1,60 @@
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-  public static void main(String[] args) {
-    int[] key ={1,0,1,0,0,0,1,1,0,0,1,0,1};
-    int len = key.length;
-    //Crear las dos listas que necessito para comparar
-    int[] lista_1 = new int[len/2];
-    int[] lista_2 = new int[len/2];
-    //Meter los digitos en la primera lista
-	int a = 0;
-       
-    
-    for (int i = 0; i < len/2; i++){
-    	a = key[i];
-        lista_1[i] = a;
-        
-    }
-		//Meter datos en la segunda lista
+    public static void main(String[] args) {
+        int[] key ={1,0,1,0,0,1,0,1,0,0,1,0,1};
+        int len = key.length;
+        //Crear las dos listas que necessito para comparar
+        int[] lista_1 = new int[len/2];
+        int[] lista_2 = new int[len/2];
+
+
+        //Meter los digitos en la primera lista
+        int a = 0;
+
+
+        for (int i = 0; i < len/2; i++){
+            a = key[i];
+            lista_1[i] = a;
+
+        }
+
+
+        //Meter datos en la segunda lista
         a = 0;
         int con = 0;
-	for (int k = len-1; k > len/2; k--){
-    a = key[k];
-    lista_2[con] = a;
-    con++;
-    }
-
-      //Comparar los datos
-      
-      int conta = 0;
-      for (int h = 0; h < len/2; h++){
-        if (lista_1[h] == lista_2[h]){
-          conta++;
-          System.out.println(lista_1[h] +" " + lista_2[h]);
+        //El if lo qe hace es separar para saber si la lista es par o impar
+        if (len % 2 == 0){
+            for (int k = len-1; k > len/2-1; k--){
+                a = key[k];
+                lista_2[con] = a;
+                con++;
+            }
         }
-      }
-      int c = len/2 ;
-      System.out.println(c);
-      System.out.println(len);
-      //Problema que cuando es impar no coge el los numeros finales nunca los coge
-      //Mostrar por pantalla
-	if (conta == c){
-   	 	System.out.println("Son iguales");
-   		 }
-         
-         
-         
-         
-         
-  }
+        else{
+            for (int k = len-1; k > len/2; k--){
+                a = key[k];
+                lista_2[con] = a;
+                con++;
+            }
+        }
+
+        //Comparar los datos
+
+        int conta = 0;
+        for (int h = 0; h < len/2; h++){
+            if (lista_1[h] == lista_2[h]){
+                conta++;
+                System.out.println(lista_1[h] +" " + lista_2[h]);
+            }
+        }
+        int c = len/2 ;
+        //Problema que cuando es impar no coge el los numeros finales nunca los coge
+        //Mostrar por pantalla
+        if (conta == c){
+            System.out.println("Son iguales");
+        }
+
+
+    }
 }
